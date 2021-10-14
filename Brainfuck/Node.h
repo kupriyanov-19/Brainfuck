@@ -22,7 +22,6 @@ public:
         if (this->isInstruction()) throw std::exception("Trying to interpret the commmand as a cycle");
         return &std::get<std::vector<Node>>(statement);
     }
-
 private:
     std::variant<Instructions, std::vector<Node>> statement;
 };

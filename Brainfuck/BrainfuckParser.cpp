@@ -17,7 +17,7 @@ std::vector<Node> BrainfuckParser::parse(Iterator first, Iterator last, Iterator
             array.emplace_back(convertToken(*current));
         }
     }
-    //we have reached the end of the array, but the beginning of the current cycle is not the beginning of the array
+    //We have reached the end of the array, but the beginning of the current cycle is not the beginning of the array
     if (cycleBegin != first) throw std::exception("Incorrect program. Not all cycles have a closing bracket");
     return array;
 }
