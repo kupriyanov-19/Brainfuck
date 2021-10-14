@@ -5,7 +5,7 @@ void BrainfuckVirtualMachine::executeNode(const Node &command) {
         consumeInstruction(command.getInstruction());
     else {
         while (array.getValue() != 0) {
-            for(Node directive: *(command.getChild()))
+            for (Node directive : *(command.getChild()))
                 executeNode(directive);
         }
     }

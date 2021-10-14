@@ -35,7 +35,7 @@ Instructions BrainfuckParser::convertToken(Tokens token) const {
     case Tokens::PRINT:
         return Instructions::PRINT;
     default:
-        throw std::exception("Incorrect tokens");
+        throw std::exception("Incorrect token");
     }
 
 }
