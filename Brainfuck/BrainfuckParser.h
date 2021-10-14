@@ -12,6 +12,7 @@ public:
         Iterator current = first;
         return parse(first, last, first, current);
     }
+
 private:
     std::vector<Node> parse(Iterator first, Iterator last, Iterator cycleBegin, Iterator& current) const;
     Instructions convertToken(Tokens token) const;
