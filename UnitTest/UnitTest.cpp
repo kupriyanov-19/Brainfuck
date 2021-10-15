@@ -56,9 +56,9 @@ namespace UnitTest
 
         bool compareNodes(const Node& first, const Node& second) {
             if (first.isInstruction() ^ second.isInstruction()) return false;
-            if (first.isInstruction()) 
+            if (first.isInstruction())
                 return (first.getInstruction() == second.getInstruction());
-            else 
+            else
                 return compareVectors(*first.getChild(), *second.getChild());
         }
 
@@ -88,7 +88,7 @@ namespace UnitTest
 
         TEST_METHOD(Test3)
         {
-            std::vector<Tokens> tokens = { Tokens::MINUS, Tokens::PRINT, Tokens::STARTCYCLE, Tokens::ENDCYCLE  };
+            std::vector<Tokens> tokens = { Tokens::MINUS, Tokens::PRINT, Tokens::STARTCYCLE, Tokens::ENDCYCLE };
             std::vector<Node> expected = { Node(Instructions::MINUS), Node(Instructions::PRINT), Node() };
             std::vector<Node> result = parser.parse(tokens.begin(), tokens.end());
             Assert::AreEqual(compareVectors(expected, result), true);
@@ -97,22 +97,10 @@ namespace UnitTest
         TEST_METHOD(Test4)
         {
             std::vector<Tokens> tokens = { Tokens::STARTCYCLE, Tokens::STARTCYCLE, Tokens::ENDCYCLE, Tokens::PLUS, Tokens::ENDCYCLE };
-            std::vector<Node> cycleBody = std::vector<Node>{Node(), Node(Instructions::PLUS) };
+            std::vector<Node> cycleBody = std::vector<Node>{ Node(), Node(Instructions::PLUS) };
             std::vector<Node> expected = { Node(cycleBody) };
             std::vector<Node> result = parser.parse(tokens.begin(), tokens.end());
             Assert::AreEqual(compareVectors(expected, result), true);
         }
     };
-
-    TEST_CLASS(BFVirtualMachine)
-    {
-    public:
-        BrainfuckVirtualMachine machine;
-        TEST_METHOD(Test1)
-        {           
-            
-        }
-    };
-
-
 }
