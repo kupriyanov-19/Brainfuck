@@ -1,7 +1,7 @@
 #pragma once
 #include<variant>
-#include"Instructions.h"
 #include<vector>
+#include"Instructions.h"
 
 class Node {
 public:

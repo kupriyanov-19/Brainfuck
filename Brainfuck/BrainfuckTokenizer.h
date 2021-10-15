@@ -1,6 +1,6 @@
 #pragma once
-#include"Tokens.h"
 #include<vector>
+#include"Tokens.h"
 
 class BrainfuckTokenizer {
 public:
