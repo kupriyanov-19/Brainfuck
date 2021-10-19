@@ -2,31 +2,38 @@
 #include<string>
 #include"BrainfuckTokenizer.h"
 
-std::vector<Tokens> BrainfuckTokenizer::tokenize(const std::string& str) const {
-    std::vector<Tokens> tokens;
-    for (char symbol : str) {
-        tokens.push_back(getInstruction(symbol));
-    }
-    return tokens;
-}
+using pointer = std::shared_ptr<Instruction>;
 
-Tokens BrainfuckTokenizer::getInstruction(char symbol) const {
-    switch (symbol) {
-    case '>':
-        return Tokens::INCREMENT;
-    case '<':
-        return Tokens::DECREMENT;
-    case '+':
-        return Tokens::PLUS;
-    case '-':
-        return Tokens::MINUS;
-    case '.':
-        return Tokens::PRINT;
-    case '[':
-        return Tokens::STARTCYCLE;
-    case ']':
-        return Tokens::ENDCYCLE;
-    default:
-        throw std::exception("Found a symbol that has no meaning in Brainfuck");
+std::vector<pointer> BrainfuckTokenizer::tokenize(const std::string& str) const {
+    std::vector<pointer> instructions;
+    instructions.emplace_back(new StartOfProgram());
+    for (char symbol : str) {
+        switch (symbol) {
+        case '>':
+            instructions.emplace_back(new IncrementPointer());
+            break;
+        case '<':
+            instructions.emplace_back(new DecrementPointer());
+            break;
+        case '+':
+            instructions.emplace_back(new PlusValue());
+            break;
+        case '-':
+            instructions.emplace_back(new MinusValue());
+            break;
+        case '.':
+            instructions.emplace_back(new Print());
+            break;
+        case '[':
+            instructions.emplace_back(new StartCycle());
+            break;
+        case ']':
+            instructions.emplace_back(new EndCycle());
+            break;
+        default:
+            throw std::exception("Found a symbol that has no meaning in Brainfuck");
+        }
     }
+    instructions.emplace_back(new EndOfProgram());
+    return instructions;
 }

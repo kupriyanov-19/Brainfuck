@@ -1,19 +1,19 @@
 #pragma once
 #include"BrainfuckTokenizer.h"
-#include"BrainfuckParser.h"
-#include"BrainfuckVirtualMachine.h"
+#include"ArrayOfValues.h"
 
 class BrainfuckInterpreter
 {
 public:
+    using pointer = std::shared_ptr<Instruction>;
+
     void executeProgram(const std::string& str) {
-        std::vector<Tokens> tokens = tokenizer.tokenize(str);
-        std::vector<Node> commands = parser.parse(tokens.begin(), tokens.end());
-        for (Node command : commands) machine.executeNode(command);
+        std::vector<pointer> instructions = tokenizer.tokenize(str);
+        ArrayOfValues array;
+        std::vector<pointer>::iterator ptr = instructions.begin();
+        while((*ptr)->executeCommand(array, ptr));
     }
 
 private:
     BrainfuckTokenizer tokenizer;
-    BrainfuckParser parser;
-    BrainfuckVirtualMachine machine;
 };

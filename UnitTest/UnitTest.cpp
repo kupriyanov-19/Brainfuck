@@ -1,15 +1,11 @@
 ﻿#include "pch.h"
 #include "CppUnitTest.h"
-#include"../Brainfuck/BrainfuckParser.h"
-#include"../Brainfuck/BrainfuckParser.cpp"
 #include"../Brainfuck/BrainfuckTokenizer.h"
 #include"../Brainfuck/BrainfuckTokenizer.cpp"
-#include"../Brainfuck/BrainfuckVirtualMachine.h"
-#include"../Brainfuck/BrainfuckVirtualMachine.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace UnitTest
+/*namespace UnitTest
 {
 
     TEST_CLASS(BFtokenizer)
@@ -104,3 +100,4 @@ namespace UnitTest
         }
     };
 }
+*/

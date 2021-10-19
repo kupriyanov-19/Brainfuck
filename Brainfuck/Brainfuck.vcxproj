@@ -152,20 +152,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BrainfuckParser.cpp" />
-    <ClCompile Include="BrainfuckVirtualMachine.cpp" />
+    <ClCompile Include="Instruction.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="BrainfuckTokenizer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayOfValues.h" />
-    <ClInclude Include="BrainfuckParser.h" />
     <ClInclude Include="BrainfuckInterpreter.h" />
     <ClInclude Include="BrainfuckTokenizer.h" />
-    <ClInclude Include="BrainfuckVirtualMachine.h" />
-    <ClInclude Include="Instructions.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="Tokens.h" />
+    <ClInclude Include="Instruction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
