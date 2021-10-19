@@ -1,6 +1,5 @@
 #pragma once
 #include<vector>
-#include<memory>
 #include"Instruction.h"
 
 class BrainfuckTokenizer {

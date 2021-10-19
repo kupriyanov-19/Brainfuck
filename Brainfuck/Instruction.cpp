@@ -9,7 +9,7 @@ bool StartCycle::executeCommand(ArrayOfValues& array,
         while (true) {
             ++ptr;
             if (std::dynamic_pointer_cast<EndOfProgram>(*ptr))
-                throw std::exception("Incorrect program. Åhere are more opening brackets than closing.");
+                throw std::exception("Incorrect program. There are more opening brackets than closing.");
             if (std::dynamic_pointer_cast<StartCycle>(*ptr)) counter++;
             if (std::dynamic_pointer_cast<EndCycle>(*ptr)) {
                 if (counter == 0) break;
