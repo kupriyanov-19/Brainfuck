@@ -10,10 +10,10 @@ bool StartCycle::executeCommand(ArrayOfValues& array,
             ++ptr;
             if (std::dynamic_pointer_cast<EndOfProgram>(*ptr))
                 throw std::exception("Incorrect program. There are more opening brackets than closing.");
-            if (std::dynamic_pointer_cast<StartCycle>(*ptr)) counter++;
+            if (std::dynamic_pointer_cast<StartCycle>(*ptr)) ++counter;
             if (std::dynamic_pointer_cast<EndCycle>(*ptr)) {
                 if (counter == 0) break;
-                counter--;
+                --counter;
             }
         }
     }
@@ -29,10 +29,10 @@ bool EndCycle::executeCommand(ArrayOfValues& array,
             --ptr;
             if (std::dynamic_pointer_cast<StartOfProgram>(*ptr))
                 throw std::exception("Incorrect program. There are more closing brackets than opening.");
-            if (std::dynamic_pointer_cast<EndCycle>(*ptr)) counter++;
+            if (std::dynamic_pointer_cast<EndCycle>(*ptr)) ++counter;
             if (std::dynamic_pointer_cast<StartCycle>(*ptr)) {
                 if (counter == 0) break;
-                counter--;
+                --counter;
             }
         }
     }
