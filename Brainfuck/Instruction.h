@@ -6,13 +6,13 @@
 class Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) = 0;
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) = 0;
 };
 
 class IncrementPointer : public Instruction {
 public:
     virtual bool executeCommand (ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override {
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override {
         array.increment();
         ++ptr;
         return true;
@@ -22,7 +22,7 @@ public:
 class DecrementPointer : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override {
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override {
         array.decrement();
         ++ptr;
         return true;
@@ -32,7 +32,7 @@ public:
 class PlusValue : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override {
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override {
         array.plus();
         ++ptr;
         return true;
@@ -42,7 +42,7 @@ public:
 class MinusValue : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override {
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override {
         array.minus();
         ++ptr;
         return true;
@@ -52,7 +52,7 @@ public:
 class Print : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override {
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override {
         array.print();
         ++ptr;
         return true;
@@ -62,13 +62,13 @@ public:
 class StartCycle : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override;
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override;
 };
 
 class EndCycle : public Instruction {
 public:
     virtual bool executeCommand(ArrayOfValues& array,
-        std::vector<std::shared_ptr<Instruction>>::iterator &ptr) override;
+        std::vector<std::shared_ptr<Instruction>>::iterator& ptr) override;
 };
 
 class EndOfProgram : public Instruction {

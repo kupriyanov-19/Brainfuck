@@ -3,7 +3,7 @@
 using pointer = std::shared_ptr<Instruction>;
 
 bool StartCycle::executeCommand(ArrayOfValues& array,
-    std::vector<pointer>::iterator &ptr) {
+    std::vector<pointer>::iterator& ptr) {
     if (!array.getValue()) {
         int counter = 0;
         while (true) {
@@ -22,7 +22,7 @@ bool StartCycle::executeCommand(ArrayOfValues& array,
 }
 
 bool EndCycle::executeCommand(ArrayOfValues& array,
-    std::vector<pointer>::iterator &ptr) {
+    std::vector<pointer>::iterator& ptr) {
     if (array.getValue()) {
         int counter = 0;
         while (true) {
